@@ -1,0 +1,20 @@
+class Solution:
+    def minStartValue(self, nums: List[int]) -> int:
+        start_val = None
+        changing_start = 0
+        
+        for val in nums:
+            if val > 0:
+                changing_start += val
+            if val < 0:
+                if changing_start + val < 1:
+                    if start_val == None:
+                        start_val = abs(val) - changing_start + 1
+                    else:
+                        start_val += abs(val+changing_start)+1
+                    changing_start = 1
+                else:
+                    changing_start += val                
+        if start_val == None:
+            return 1
+        return start_val
