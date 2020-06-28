@@ -19,3 +19,5 @@ class Solution:
                 stack.pop()
                 x-=1      
         return ''.join(l)
+
+# whenever you are adding or removing from the list which is on loop, always use while loop
